@@ -33,7 +33,7 @@ auth.onAuthStateChanged((user) => {
   } else {
     // no user
     ReactDOM.render(
-      <HashRouter basename="/Talkio">
+      <HashRouter>
         <Route component={Authenticator} />
       </HashRouter>,
       document.getElementById("root")
