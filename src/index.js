@@ -15,7 +15,7 @@ auth.onAuthStateChanged((user) => {
     } else {
       //home
       ReactDOM.render(
-        <BrowserRouter>
+        <BrowserRouter basename="/Talkio">
           <p>{auth.currentUser.displayName}</p>
           <button
             onClick={() => auth.signOut()}
@@ -33,7 +33,7 @@ auth.onAuthStateChanged((user) => {
   } else {
     // no user
     ReactDOM.render(
-      <BrowserRouter>
+      <BrowserRouter basename="/Talkio">
         <Authenticator />
       </BrowserRouter>,
       document.getElementById("root")
