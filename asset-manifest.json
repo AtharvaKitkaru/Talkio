@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Talkio/static/css/main.1a640de8.chunk.css",
-    "main.js": "/Talkio/static/js/main.56a4edb9.chunk.js",
+    "main.js": "/Talkio/static/js/main.f9c2c800.chunk.js",
     "runtime-main.js": "/Talkio/static/js/runtime-main.105d3c83.js",
     "static/css/2.6a4a1a02.chunk.css": "/Talkio/static/css/2.6a4a1a02.chunk.css",
     "static/js/2.3600425d.chunk.js": "/Talkio/static/js/2.3600425d.chunk.js",
@@ -15,6 +15,6 @@
     "static/css/2.6a4a1a02.chunk.css",
     "static/js/2.3600425d.chunk.js",
     "static/css/main.1a640de8.chunk.css",
-    "static/js/main.56a4edb9.chunk.js"
+    "static/js/main.f9c2c800.chunk.js"
   ]
 }
