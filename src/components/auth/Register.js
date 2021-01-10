@@ -78,14 +78,12 @@ class Register extends Component {
       auth
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((user_creds) => {
-          alert(`user created . now creating firestore object.`)
           db.collection("users")
             .doc(user_creds.user.uid)
             .set({
               email: user_creds.user.email,
             })
             .then(() => {
-              alert(`user created and sending email verification`);
               user_creds.user.sendEmailVerification().then(() => {
                 auth.signOut().finally(() => {
                   $(".alert-danger").addClass("d-none");
@@ -174,13 +172,13 @@ class Register extends Component {
             </div>
 
             <div
-              class="alert alert-danger d-none mb-0 "
+              className="alert alert-danger d-none mb-0 "
               role="alert"
               style={{ fontSize: "0.9em" }}
             >
               {this.state.error}
             </div>
-            <div class="alert alert-success d-none mb-0 " role="alert">
+            <div className="alert alert-success d-none mb-0 " role="alert">
               Verification mail has been sent to your mail id.
             </div>
             <div className="form-group d-flex justify-content-between my-5 text-center">
