@@ -80,7 +80,7 @@ class Register extends Component {
           db.collection("users")
             .doc(user_creds.user.uid)
             .set({
-              email: user_creds.user.email
+              email: user_creds.user.email,
             })
             .then(() => {
               user_creds.user.sendEmailVerification().then(() => {
@@ -182,12 +182,13 @@ class Register extends Component {
             </div>
             <div className="form-group d-flex justify-content-between my-5 text-center">
               <Link to="/login" className="text-decoration-none">
-                <button className="btn btn-light text-primary">
+                <button type="button" className="btn btn-light text-primary">
                   <span className="fa fa-fw mr-2 fa-chevron-left"></span>
                   Login
                 </button>
               </Link>
               <button
+                type="submit"
                 className="btn btn-success shadow-sm px-3"
                 disabled={
                   this.passwordSecure() &&
