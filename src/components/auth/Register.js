@@ -74,6 +74,7 @@ class Register extends Component {
       this.passwordSecure() &&
       this.state.confirmPassword === this.state.password
     )
+    // render loading page
       auth
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((user_creds) => {
@@ -83,6 +84,7 @@ class Register extends Component {
               email: user_creds.user.email,
             })
             .then(() => {
+              alert(`user created and sending email verification`);
               user_creds.user.sendEmailVerification().then(() => {
                 auth.signOut().finally(() => {
                   $(".alert-danger").addClass("d-none");
