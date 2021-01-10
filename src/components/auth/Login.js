@@ -64,12 +64,11 @@ class Login extends Component {
               </label>
               <input
                 type="email"
-                className="form-control border-0"
+                className="form-control"
                 id="email"
                 name="email"
                 autoComplete="off"
                 required
-                placeholder="Enter email"
                 onChange={this.handleChange}
               />
             </div>
@@ -79,10 +78,9 @@ class Login extends Component {
               </label>
               <input
                 type="password"
-                className="form-control border-0"
+                className="form-control"
                 id="password"
                 name="password"
-                placeholder="Enter password"
                 required
                 onChange={this.handleChange}
               />
@@ -92,12 +90,12 @@ class Login extends Component {
               <Link to="/register">Register</Link>
             </div>
 
-            <div class="alert alert-danger d-none mt-2" role="alert">
+            <div class="alert alert-danger d-none my-5" role="alert">
               {this.state.error}
             </div>
 
             <div className="text-center my-3">
-              <button type="submit" className="btn btn-success shadow-sm">
+              <button type="submit" className="btn btn-success shadow">
                 Login
               </button>
             </div>
