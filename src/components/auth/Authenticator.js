@@ -10,7 +10,7 @@ const Authenticator = () => {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/forgot-password" component={ForgotPass} />
-      <Route render={() => <Redirect to="/" />} />
+      <Route render={() => <Redirect to="/login" />} />
     </Switch>
   );
 };
