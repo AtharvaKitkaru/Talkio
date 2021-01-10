@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "./index.scss";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import { auth } from "./fbconfig";
 import Authenticator from "./components/auth/Authenticator";
 
@@ -15,7 +15,7 @@ auth.onAuthStateChanged((user) => {
     } else {
       //home
       ReactDOM.render(
-        <BrowserRouter basename="/Talkio">
+        <HashRouter basename="/Talkio">
           <p>{auth.currentUser.displayName}</p>
           <button
             onClick={() => auth.signOut()}
@@ -26,16 +26,16 @@ auth.onAuthStateChanged((user) => {
           >
             Sign out
           </button>
-        </BrowserRouter>,
+        </HashRouter>,
         document.getElementById("root")
       );
     }
   } else {
     // no user
     ReactDOM.render(
-      <BrowserRouter basename="/Talkio">
+      <HashRouter basename="/Talkio">
         <Route component={Authenticator} />
-      </BrowserRouter>,
+      </HashRouter>,
       document.getElementById("root")
     );
   }
