@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Talkio/static/css/main.1a640de8.chunk.css",
-    "main.js": "/Talkio/static/js/main.658245bb.chunk.js",
+    "main.js": "/Talkio/static/js/main.91a2769a.chunk.js",
     "runtime-main.js": "/Talkio/static/js/runtime-main.105d3c83.js",
     "static/css/2.6a4a1a02.chunk.css": "/Talkio/static/css/2.6a4a1a02.chunk.css",
-    "static/js/2.10d262a5.chunk.js": "/Talkio/static/js/2.10d262a5.chunk.js",
+    "static/js/2.0f1227e5.chunk.js": "/Talkio/static/js/2.0f1227e5.chunk.js",
     "index.html": "/Talkio/index.html",
-    "static/js/2.10d262a5.chunk.js.LICENSE.txt": "/Talkio/static/js/2.10d262a5.chunk.js.LICENSE.txt",
+    "static/js/2.0f1227e5.chunk.js.LICENSE.txt": "/Talkio/static/js/2.0f1227e5.chunk.js.LICENSE.txt",
     "static/media/login.01849878.jpg": "/Talkio/static/media/login.01849878.jpg",
     "static/media/register.66be7dfa.jpg": "/Talkio/static/media/register.66be7dfa.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.105d3c83.js",
     "static/css/2.6a4a1a02.chunk.css",
-    "static/js/2.10d262a5.chunk.js",
+    "static/js/2.0f1227e5.chunk.js",
     "static/css/main.1a640de8.chunk.css",
-    "static/js/main.658245bb.chunk.js"
+    "static/js/main.91a2769a.chunk.js"
   ]
 }
