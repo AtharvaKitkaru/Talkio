@@ -8,28 +8,23 @@ import { auth } from "./fbconfig";
 import Authenticator from "./components/auth/Authenticator";
 
 auth.onAuthStateChanged((user) => {
-  if (user) {
-    if (!user.emailVerified) {
-      console.log(`user not verified`);
-      auth.signOut();
-    } else {
-      //home
-      ReactDOM.render(
-        <HashRouter>
-          <p>{auth.currentUser.displayName}</p>
-          <button
-            onClick={() => auth.signOut()}
-            type="button"
-            name="sign__out"
-            id="sign__out"
-            class="btn btn-primary btn-lg btn-block"
-          >
-            Sign out
-          </button>
-        </HashRouter>,
-        document.getElementById("root")
-      );
-    }
+  if (user && user.emailVerified) {
+    //home
+    ReactDOM.render(
+      <HashRouter>
+        <p>{auth.currentUser.displayName}</p>
+        <button
+          onClick={() => auth.signOut()}
+          type="button"
+          name="sign__out"
+          id="sign__out"
+          class="btn btn-primary btn-lg btn-block"
+        >
+          Sign out
+        </button>
+      </HashRouter>,
+      document.getElementById("root")
+    );
   } else {
     // no user
     ReactDOM.render(
