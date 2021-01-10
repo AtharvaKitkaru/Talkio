@@ -1,0 +1,10 @@
+{
+  "name": "Talkio",
+  "short_name": "Talkio",
+  "theme_color": "#cffffe",
+  "background_color": "#f9f7d9",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
