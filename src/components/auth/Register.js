@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../fbconfig";
+import { auth, db } from "../../fbconfig";
 import $ from "jquery";
 import RegisterImg from "../../assets/register.jpg";
 
@@ -67,6 +67,37 @@ class Register extends Component {
     );
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      this.passwordSecure() &&
+      this.state.confirmPassword === this.state.password
+    )
+      auth
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then((user_creds) => {
+          db.collection("users")
+            .doc(user_creds.user.uid)
+            .set({
+              email: user_creds.user.email
+            })
+            .then(() => {
+              user_creds.user.sendEmailVerification().then(() => {
+                auth.signOut().finally(() => {
+                  $(".alert-danger").addClass("d-none");
+                  $(".alert-success").removeClass("d-none");
+                });
+              });
+            });
+        })
+        .catch((err) => {
+          this.setState({ error: err.message });
+          $(".alert-success").addClass("d-none");
+          $(".alert-danger").removeClass("d-none");
+        });
+  };
+
   render() {
     return (
       <div
@@ -82,8 +113,14 @@ class Register extends Component {
           />
         </div>
         <div className="col-xl-5 col-12 d-flex flex-column justify-content-center">
-          <h1 style={{fontFamily: `SF Pro Rounded`, fontWeight: `bold`}} className="text-center mb-4"> Register </h1>
-          <form autoComplete="off">
+          <h1
+            style={{ fontFamily: `SF Pro Rounded`, fontWeight: `bold` }}
+            className="text-center mb-4"
+          >
+            {" "}
+            Register{" "}
+          </h1>
+          <form autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">
                 <i className="fa fa-fw fa-envelope" /> Email
@@ -169,4 +206,4 @@ class Register extends Component {
   }
 }
 
-export default Register;  
+export default Register;
