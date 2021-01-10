@@ -15,7 +15,7 @@ auth.onAuthStateChanged((user) => {
     } else {
       //home
       ReactDOM.render(
-        <HashRouter basename="/Talkio">
+        <HashRouter>
           <p>{auth.currentUser.displayName}</p>
           <button
             onClick={() => auth.signOut()}
