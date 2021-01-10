@@ -7,10 +7,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 const Authenticator = () => {
   return (
     <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/forgot-password" component={ForgotPass} />
-      <Route render={() => <Redirect to="/login" />} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/forgot-password" component={ForgotPass} />
+      <Redirect to="/login" />
     </Switch>
   );
 };

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "./index.scss";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { auth } from "./fbconfig";
 import Authenticator from "./components/auth/Authenticator";
 
@@ -34,7 +34,7 @@ auth.onAuthStateChanged((user) => {
     // no user
     ReactDOM.render(
       <BrowserRouter basename="/Talkio">
-        <Authenticator />
+        <Route component={Authenticator} />
       </BrowserRouter>,
       document.getElementById("root")
     );
