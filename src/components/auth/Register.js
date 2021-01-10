@@ -78,6 +78,7 @@ class Register extends Component {
       auth
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((user_creds) => {
+          alert(`user created . now creating firestore object.`)
           db.collection("users")
             .doc(user_creds.user.uid)
             .set({
