@@ -1,17 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
+import "./index.scss";
+import { BrowserRouter } from "react-router-dom";
+import { auth } from "./fbconfig";
+import Authenticator from "./components/auth/Authenticator";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    if (!user.emailVerified) {
+      console.log(`user not verified`);
+      auth.signOut();
+    } else {
+      //home
+      ReactDOM.render(
+        <BrowserRouter>
+          <p>{auth.currentUser.displayName}</p>
+          <button
+            onClick={() => auth.signOut()}
+            type="button"
+            name="sign__out"
+            id="sign__out"
+            class="btn btn-primary btn-lg btn-block"
+          >
+            Sign out
+          </button>
+        </BrowserRouter>,
+        document.getElementById("root")
+      );
+    }
+  } else {
+    // no user
+    ReactDOM.render(
+      <BrowserRouter>
+        <Authenticator />
+      </BrowserRouter>,
+      document.getElementById("root")
+    );
+  }
+});
