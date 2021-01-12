@@ -1,6 +1,7 @@
 import React from "react";
 import { auth } from "../../fbconfig";
 import { Link } from "react-router-dom";
+import firebase from 'firebase';
 import $ from "jquery";
 export default class ForgotPass extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class ForgotPass extends React.Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    window.rcv = new auth.RecaptchaVerifier("captcha", {
+    window.rcv = new firebase.auth.RecaptchaVerifier("captcha", {
       callback: (res) => {
         auth.sendPasswordResetEmail(this.state.email).then(() => {
           $(".alert-success").removeClass("d-none");
