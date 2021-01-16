@@ -1,0 +1,46 @@
+----------------------------Tools----------------------------
+
+db ==> firestore
+controller ==> php/node/python
+view ==> react
+
+
+----------------------------UI------------------------------------
+app
+    contact (choose chat)
+    chat-panel (msgs)
+
+    preferences (theme selection) ... localstorage
+
+    auth (firebase)
+    
+    
+---------------------------DB------------------------------------
+users
+    uid
+    name
+    email
+    profile_pic
+    last_online
+    contacts: uid[]
+    conversationId[] 1..n
+           
+conversation
+    id
+    last message (id,ts)
+    members:[userid1, userid2,...] 
+    isGroup
+        name
+        pic
+    
+messages:
+    conversation_id
+    body
+    timestamp(sent)
+    received_by: [(userid1, ts_received),(userid2,ts_received),...]
+    seen_by: [(userid1, ts_seen),(userid2,ts_seen),...]
+    author(userid)
+    
+
+
+
